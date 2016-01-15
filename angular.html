@@ -1,0 +1,15 @@
+<!-- code by 叶川川 -->    	
+<!doctype html> 
+<html ng-app=""> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="description" content="网页描述" />
+    <meta name="Keywords" content="关键字" />
+<script src="angular.js"></script>
+</head>
+<body >
+    <ul ng-init="arr=[{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500},{name:'xiaaofang',age:500}]">
+    	<li ng-repeat="peple in arr">我的名字叫{{peple.name}}，今年{{peple.age}}岁</li>
+    </ul>
+</body>
+</html>
