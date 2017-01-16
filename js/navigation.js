@@ -4,7 +4,7 @@ $(function(){
 
         $.ajax({
                 url: window.location.origin+'/data/f.json',
-                type: 'POST',
+                type: 'GET',
                 success: function(data){
                        if(!data['data']){
                             data.data = [] ;
