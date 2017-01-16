@@ -3,7 +3,7 @@ $(function(){
 	function getdata(){
 
         $.ajax({
-                url: 'http://localhost/ue/src/data/f.json',
+                url: window.location.origin+'/data/f.json',
                 type: 'POST',
                 success: function(data){
                        if(!data['data']){
