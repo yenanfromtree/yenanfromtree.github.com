@@ -1,55 +1,65 @@
-<!-- code by 叶川川 -->    	
-<!doctype html> 
-<html> 
-<head> 
-    <meta charset="utf-8"> 
-    <meta name="description" content="网页描述" />
-    <meta name="Keywords" content="关键字" />
-    <style>
-    	*{margin: 0;padding: 0;list-style: none;}
-    	html,body{height: 100%;}
-    	.main{height: 100%;width: 100%;position: relative;overflow: hidden;}
-		.wrap{height: 100%;width: 100%;position: absolute;top: 0;left: 0;}
-		.w100{height: 100%;width: 100%;background: url(./images/p5.jpg);background-size: cover;}
-		.bgv{height: auto;}
-		.posmain{width: 100%;height: 300px;position: absolute;top: 50%;left: 0;margin-top: -150px;}
-		.main-bg{width: 100%;height: 300px;background: black;opacity: 0.7;position: absolute;top: 0;left: 0;}
-		.header{overflow: hidden;}
-		.main-tx{width: 350px;height: 350px;background: #fff;border-radius: 50%;position: absolute;top: -10%;left: 10%;background: url(./images/me.jpg)no-repeat;background-size: cover;opacity: 1;transition-duration: 2s;}
-		.main-tx:hover{transform: rotate(360deg);background: url(./images/ewm.png);background-size: cover;}
-    </style>
-    <script src="./js/move.js"></script>
-    <script>
-    	window.onload=function(){
-    		var owrap=document.getElementById('wrap');
-    		var oh=document.getElementById('header');
-    		var n=0;
-    		document.onclick=function(){
-    			var t=oh.offsetHeight;
-    			n+=t;
-    			move(owrap,{top:(-n)});
-    		}
-    	}
-    </script>
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>zSarah</title>
+	<meta name="description" content="Free Responsive Html5 Css3 Templates | zerotheme.com">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<link rel="stylesheet" href="css/zerogrid.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/component.css">
+	<link rel="stylesheet" href="css/responsive.css">
+   
 </head>
 <body>
-    <div class="main">
-    	<div class="wrap" id="wrap">
-	    	<div class="w100 header" id="header">
-	    		<video autoplay loop poster="polina.jpg" class="bgv"style="width: 100%;"> 
-				 <source src="video.webm" type="video/webm">  
-				<source src="video.mp4" type="video/mp4"></video>
-				<div class="posmain">
-					<div class="main-bg"></div>
-					<div class="main-tx" id="tx"></div>
+	<div class="wrap-body">
+
+	<header>
+		<div class="wrap-header zerogrid">
+			<div class="row">
+				<div class="col-1-3">
+					<div id="logo"><h1>夜雨随风</h1></div>	
 				</div>
-	    	</div>
-	    	<div class="w100 skill"id="skill"><h2>技能</h2></div>
-	    	<div class="w100 cssworks"id="cssworks"><h2>css作品</h2></div>
-	    	<div class="w100 jsworks" id="jsworks"><h2>js作品</h2></div>
-	    	<div class="w100 html5works"id="h5works"><h2>h5作品</h2></div>
-	    	<div class="w100 contact" id="contact"><h2>练习方式</h2></div>
-    	</div>
-    </div>
+				<div class="col-2-3">
+					<!-- <nav>
+						<a class="toggleMenu" href="#">Menu</a>
+						<ul class="menu">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#" class="parent">Categories</a></li>
+							<li><a href="single.html">About</a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+						</ul>
+					</nav> -->
+				</div>
+				
+			</div>
+		</div>
+	</header>
+	<section class="container page-home">
+		<div id="main-content" class="wrap-container zerogrid">
+			
+		</div>
+		
+	<!-- 	<div id="pagination" class="clearfix">
+			<p class="morea"><span>加载更多</span></p>
+		</div> -->	
+	</section>
+
+	<footer>
+		<div class="copyright">
+			<p>Copyright © 2015 - 夜雨随风博客 fromtree@163.com</p>
+		</div>
+	</footer>
+		<div class="textbox">
+		    <div class="ext">×</div>
+		    <div class="textmain"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/navigation.js"></script>
 </body>
 </html>
