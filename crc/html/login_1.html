@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script type="text/javascript" src="../js/zepto_1.1.3.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+   
+    <style type="text/css">
+    	body,html{
+    		font-size: 100px;
+    		background:white;
+    	}
+    	.mui-content{
+    		background:white;
+    		padding-left:0.1rem;
+    		padding-right: 0.1rem;
+    	}
+    	.main_logo{
+    		width: 100%;
+    		height: 1.1rem;
+    		background:white;
+    		display: flex;
+    		justify-content:center;
+    		align-items:center;
+    	}
+    	.main_logo .img_logo{
+    		
+    	}
+    	.img_logo img{
+    		width:.66rem;
+    		display: inline-block;
+    		height:.36rem;
+    		
+    	}
+    	.hu-btn{
+    		width:100%;
+    		height: .39rem;
+    		margin-top:0.07rem;
+    		margin-bottom: 0.07rem;
+    	}
+    	.login_content input{
+    		margin-top:0.07rem;
+    		margin-bottom: 0.07rem;
+    		border: 1px solid #d7d7d7;
+    		border-radius:0.05rem ;
+    	} 
+    	.login_forget a{
+    		text-decoration:underline;
+    	}
+    	.login_forget p:nth-child(2) a:nth-child(1){
+    		text-decoration: none;
+    		padding-right:.1rem;
+    	}
+    	.login_content span{
+    		color: red;
+    	}
+    	.hu-bg-gray{
+    		color: white;
+    		background:gray;
+    	}
+    	.hu-red-border{
+    		border: 1px solid red;
+    	}
+    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title"></h1>
+		</header>
+		
+		<div class="mui-content">
+		    <div class="main_logo">
+		    	<span class="img_logo">
+		    		<img src="../img/login_01.png"/>
+		    	</span>
+		    </div>
+			<!--<div class="mui-input-group">
+			    <div class="mui-input-row">
+			        <input type="text" class="mui-input-clear" placeholder="请输入用户名">
+			    </div>
+			    <div class="mui-input-row">
+			        <input type="password" class="mui-input-clear" placeholder="请输入密码">
+			    </div>
+			</div>-->
+			<div class="login_content">
+				<p>
+					<input type="email" placeholder="Eamil" id="input_email" />
+					<span></span>
+				</p>
+				<p>
+					<input type="text" placeholder="Email/Username" id="input_text" />
+					<span></span>
+				</p>
+				<p>
+					<input type="password" placeholder="Password" id="input_pass" />
+					<span></span>
+				</p>
+				<p>
+					<input type="password" placeholder="Confirm Password" id="input_pass_two" />
+					<span></span>
+				</p>
+				<p>
+					<button type="button" class="mui-btn mui-btn-blue hu-btn" disabled="disabled">Regist</button>
+					<span></span>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+      		mui.init();
+      		$(function(){
+      			var state = false;
+      			var state1 = false;
+      			var state2 = false;
+      			var state3 = false;
+	            $('#input_email').keyup(function(){
+	                if ($(this).val() == '') {
+	                	$(this).addClass("hu-red-border")
+	                   $(this).next('span').text('邮箱不能为空').css("color","red");
+	                   state=false;
+	                }
+	                else {
+	                    if (/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($(this).val()) == false) {
+	                        $(this).next('span').text('邮箱格式不正确，请重新输入').css("color","red");
+	                        $(this).addClass("hu-red-border")
+	                         state=false;   
+	                    }
+	                    else {
+	                        $(this).next('span').text('sucess').css("color","green");
+	                        state = true;
+	                    }
+	                }
+	                if((state3&&state&&state1&&state2)===false){
+	                	$(".hu-btn").prop("disabled",true)
+	                }else{
+	                	$(".hu-btn").prop("disabled",false)
+	                }
+	            })
+				$('#input_text').keyup(function(){
+	                if ($(this).val() == '') {
+	                	$(this).addClass("hu-red-border")
+	                   $(this).next('span').text('用户名不能为空').css("color","red");
+	                    state1=false;
+	                }
+	                else {
+	                	console.log("asdasd")
+                        $(this).next('span').text('sucess').css("color","green");
+                        state1 = true;
+	                }
+	                if((state3&&state&&state1&&state2)===false){
+	                	$(".hu-btn").prop("disabled",true)
+	                }else{
+	                	$(".hu-btn").prop("disabled",false)
+	                }
+	            })
+			
+				$("#input_pass").keyup(function(){
+	                if ($(this).val() == '') {
+	                	$(this).addClass("hu-red-border")
+	                   $(this).next('span').text('密码不能为空').css("color","red");
+	                    state2=false;
+	                }
+	                else if($(this).val().length<6){
+	                		$(this).addClass("hu-red-border")
+	                   		$(this).next('span').text('密码长度不能小于6').css("color","red");
+	                   		state2=false;
+	                }
+                	else{
+                        $(this).next('span').text('sucess').css("color","green");
+                        state2 = true;
+                	}
+	                if((state3&&state&&state1&&state2)===false){
+	                	$(".hu-btn").prop("disabled",true)
+	                }else{
+	                	$(".hu-btn").prop("disabled",false)
+	                }
+	            })
+				
+				$("#input_pass_two").keyup(function(){
+	                if ($(this).val() == '') {
+	                	$(this).addClass("hu-red-border")
+	                   $(this).next('span').text('密码不能为空！').css("color","red");
+	                    state3=false;
+	                }
+	                else {
+	   					if($("#input_pass").val()!=$("#input_pass_two").val()){
+	   						$(this).addClass("hu-red-border")
+	                   		$(this).next('span').text('两次输入不一致请重新输入！').css("color","red");
+	   						 state3=false;
+	   					}else{
+	                        $(this).next('span').text('sucess').css("color","green");
+	                        state3 = true;	
+	   					}
+	                }
+	                if((state3&&state&&state1&&state2)===false){
+	                	$(".hu-btn").prop("disabled",true)
+	                }else{
+	                	$(".hu-btn").prop("disabled",false)
+	                }
+	            })
+				var flag=true
+				$(".hu-btn").click(function(){
+					if(flag=true){
+					var username= trim($("#input_text").val())
+					var password= $("#input_pass").val()
+					$.ajax({
+						type:"get",
+						url:"http://www.duechina.com/api/index.php/user/register",
+						data:{
+							username:username,
+							password:password
+						},
+						async:true,
+						success:function(data){
+							flag=true;
+							if(data.status=="error"){
+								console.log(data.msg)
+	      						mui.alert(data.msg)
+	      					}else if(data.status=="success"){
+	      						
+	      						window.location.href="../login.html"	
+							}
+				
+						}
+					})
+					flag=false
+					}
+				
+				})
+	       })
+      		function trim(str){ //删除左右两端的空格 
+				return str.replace(/(^\s*)|(\s*$)/g, ""); 
+			} 
+			function verifyPassword(obj){
+			    if(/^[a-z0-9_-]{5,18}$/.test(obj)){
+			        return true;
+			    }
+			}
+    	</script>
+	</body>
+</html>

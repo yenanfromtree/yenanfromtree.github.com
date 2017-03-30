@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0  user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/huodongxiangqing.css"/>
+		<!--<link rel="icon" href="https://m.qmcai.com/img/favicon.ico">-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>-->
+		<!--<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//标准版rem
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth < 320) {
+							clientWidth = 320;
+						}
+//						if(clientWidth > 960) {
+//							clientWidth = 960;
+//						}
+						docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				recalc();
+			})(document, window);
+			$(function(){
+				var imgSrc = '';
+				var imgPoster = '';
+				var shipinPic = '';
+				var flag=0;
+				var a =document.location.href;
+				var aid = a.split('=')[1];
+				console.log(aid);
+				//视频
+				$.ajax({
+					type:"get",
+					url:"http://www.duechina.com/api/index.php/archives/landvideos?aid="+aid,
+					async:true,
+					success:function(data){
+						console.log(JSON.parse(data))
+						var videoMessage = JSON.parse(data).result;
+						console.log(videoMessage);
+						$('.videoTop').html(videoMessage[0].title);
+						var video_top = $('<video id="video" src="'+videoMessage[0].url+'" poster="'+videoMessage[0].img+'" controls></video>');
+						$('.top').append(video_top);
+						for(var i =0;i<videoMessage.length;i++){
+							var timeVideo =String(videoMessage[i].time/60).split('.')[0];
+							if(Number(timeVideo)<10){
+								timeVideo = '0'+ Number(timeVideo);
+							}
+							var timeSecond = videoMessage[i].time%60;
+							console.log(timeSecond);
+							var videoSmall_lun_img= $('<div class="createDiv"><img class="videoSmall_lun_img" video-src="'+videoMessage[i].url+'" src="'+videoMessage[i].img+'"/><span class="videoSmall_lun_span">'+timeVideo+':'+timeSecond+'</span></div>');
+							$('.videoSmall_lun').append(videoSmall_lun_img);	
+						}
+						$('.videoSmall_lun').css({
+							'width':((videoMessage.length)*(1.98)+(0.11)*(videoMessage.length-1))+'rem'
+						});
+						console.log(videoMessage.length);
+					}
+				});
+				//拿到所有的数据
+				$.ajax({
+					type:"get",
+					url:"http://www.duechina.com/api/index.php/archives/show/?aid="+aid,
+					async:true,
+					success:function(data){
+						 shipinPic =JSON.parse(data).result;
+						 console.log(shipinPic);
+						 messageTa(shipinPic);
+					}
+				});
+				function messageTa(shipinPic){
+					var imgs = '',
+						peopleMessage='',
+						bookMessage = '',
+						gusetMessage ='',
+						div_pic = '',
+						zhuPeople = '';
+					$('.wenzhang_cont1').html(shipinPic.content);
+					$('.wenzhang_cont2').html(shipinPic.content2);
+					for(var i=0;i<shipinPic.host.length;i++){
+						zhuPeople +=shipinPic.host[i].professional;
+					}
+					$('.videoZhubin').html(zhuPeople);
+					var timeGet =  new Date( Number(shipinPic.starttime)*1000);
+					console.log(timeGet);
+					var timeLocal = timeGet.toLocaleString();
+					$('.startTime').html(timeLocal);
+					//图文混排
+					$('.wenzhang_cont').find('img').prop('style','width: 100%;');
+					//图书列表
+					for(var i=0;i<shipinPic.guest.length;i++){
+						bookMessage += '<dl name="'+shipinPic.works[i].aid+'">'+
+							'<dt><img src="'+shipinPic.works[i].image+'"/></dt>'+
+							'<dd><p style="width:4rem">'+
+									'<span>Name:</span><span>'+shipinPic.works[i].title+'</span>'+
+								'</p><p><span style="font-weight:bloder;color:#000;">Introduction:</span>'+
+									(shipinPic.works[i].introduction||"")+
+								'</p></dd></dl>'
+					};
+					//主宾列表
+					for(var i=0;i<shipinPic.host.length;i++){
+						peopleMessage += '<dl name="'+shipinPic.host[i].aid+'">'+
+							'<dt><img src="'+shipinPic.host[i].image+'"/></dt>'+
+							'<dd><p>'+
+									'<span >'+shipinPic.host[i].title+'</span>'+
+								'</p><p>'+
+									shipinPic.host[i].channel+
+								'</p></dd></dl>'
+					};
+					//嘉宾
+					for(var i=0;i<shipinPic.guest.length;i++){
+						gusetMessage += '<dl name="'+shipinPic.guest[i].aid+'" >'+
+							'<dt><img src="'+shipinPic.guest[i].image+'"/></dt>'+
+							'<dd><p>'+
+									'<span>'+shipinPic.guest[i].title+'</span>'+
+								'</p><p>'+
+									shipinPic.guest[i].channel+
+								'</p></dd></dl>'
+					};
+					//图书
+					for(var i =0;i<shipinPic.photos.length;i++){
+						div_pic += '<li name="'+shipinPic.photos[i].aid+'" ><img src="'+shipinPic.photos[i]+'"/></li>';
+					}
+					//var allLength = shipinPic.host.length + shipinPic.guest.length;
+				//	console.log(allLength);
+					$('.detail-page-div ul').append(div_pic);
+					//图片那个
+					$('.detail-page-div ul').css({
+						'width':(shipinPic.photos.length)*(2.4)+(0.15)*(shipinPic.photos.length-1)+"rem"
+					});
+					$('.person_div_book').append(bookMessage);
+					$('.person_div_person_dl').append(peopleMessage);
+					$('.person_div_person_dl').css({
+						'width':(shipinPic.host.length)*(2.5)+(0.1)*(shipinPic.host.length-1)+"rem"
+					});
+					$('.person_div_guest_dl').append(gusetMessage);
+					$('.person_div_guest_dl').css({
+						'width':(shipinPic.guest.length)*(2.5)+(0.1)*(shipinPic.guest.length-1)+"rem"
+					});
+					$('.question_div').find('dd').eq(0).html(shipinPic.question1);
+					$('.question_div').find('dd').eq(1).html(shipinPic.question2);
+					$('.question_div').find('dd').eq(2).html(shipinPic.question3);
+					//固定高度超出隐藏
+			        $(".person_div_book dl").each(function (i) {  
+			            var divH = $(this).height();  
+			            var $p = $("p", $(this)).eq(1);  
+			            console.log($p.height())
+			            while (($p.height()+70)> divH) {  
+			                $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));  
+			            };  
+			        });  
+				}
+				$('.videoSmall_lun').on('click','img',function(){
+						imgSrc =  $(this).attr('video-src');
+						imgPoster =  $(this).attr('src');
+						console.log(imgSrc);
+						console.log(imgPoster);
+						$('#video').attr('src',imgSrc).attr('poster',imgPoster);
+				});	
+				 detail(".person_div_person dl","person_show.html")
+				 detail(".person_div_book dl","book_detail.html")
+			});
+			function detail(obj,url){
+				$(document).on("click",obj,function(){
+					window.location.href=url+"?id="+$(this).attr("name");
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			
+		</div>
+		<div class="messageClear">
+			<p>
+				<span class="videoMessage_topic">Theme:</span><span class="videoTop"></span><br />
+			</p>
+			<p>
+				<span class="videoMessage_topic">Guests:</span><span class="videoZhubin"></span><br />
+			</p>
+			<p>
+				<span class="videoMessage_topic">Time:</span><span class="startTime"></span><br />
+			</p>
+		</div>
+		<div class="videoSmall_lun_top" style="width: 100%;overflow: auto;">
+			<div class="videoSmall_lun">
+			
+			</div>
+		</div>
+		
+		<div class="">
+			<h3 class="wenzhang_top">
+				BRIEF INTRODUCTION
+			</h3>
+			<div class="wenzhang_cont">
+				<p class="wenzhang_cont2">
+				</p>
+			</div>
+		</div>
+		<div class="">
+			<h3 class="wenzhang_top">ACTIVITY PHOTOS</h3>
+			<div class="detail-page-div">
+				<ul>
+				</ul>
+			</div>
+		</div>
+		<div class="">
+			<h3 class="wenzhang_top">
+				CELEBTRITIES
+			</h3>
+			<div class="person_guest">
+				<div class="person_div_person">
+					<div class="person_div_person_dl">
+						
+					</div>
+					<div class="person_div_guest_dl">
+				</div>
+			</div>
+			
+		</div>
+		<div class="" style="clear: both;">
+			<h3 class="wenzhang_top">
+				MASTERPIECES
+			</h3>
+			<div class="person_div person_div_book">
+			</div>
+		</div>
+		<div class="contion_div">
+			<h3 class="wenzhang_top">
+				COMMENTS
+			</h3>
+			<div class="question_div">
+				<dl>
+					<dt>
+						<img src="../img/Detail-page-personHead_06.png"/>
+					</dt>
+					<dd>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<img src="../img/Detail-page-personHead_06.png"/>
+						
+					</dt>
+					<dd>
+						
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<img src="../img/Detail-page-personHead_06.png"/>
+					</dt>
+					<dd>
+						
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="buchong">
+			
+		</div>
+		<footer class="foot">
+			<div class="show_first" style="">
+				<div></div>
+				<div>
+					<input type="text" name="" id="" value="" placeholder="comment" />
+				</div>
+				<div>
+					<span>
+					</span>
+					<span>
+					</span>
+				</div>
+			</div>
+		</footer>
+	</body>
+
+</html>

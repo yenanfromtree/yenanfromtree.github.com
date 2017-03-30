@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Personal home page</title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <script src="../js/personal_home.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	.tubiao{
+    		color: #FFFFFF;
+    	}
+    	.foot{
+    		/*height: 1.84rem;*/
+    		box-sizing: border-box;
+    		/*padding-top: 0.25rem;*/
+    		background: #f2f1ee;
+    	}
+    	.foot_but{
+    		width: 88%;
+    		margin-left: 5%;
+    	}
+    	.cont_top{
+    		width: 100%;
+    		height: auto;
+    		box-sizing: border-box;
+    		padding: 0.2rem 0 0 0.48rem;
+    		margin: 0;
+    		margin-bottom: 0.35rem;
+    		background: #FFFFFF;
+    	}
+    	.cont_top dl{
+    		overflow: auto;
+    		
+    	}
+    	.cont_top dt{
+    		float: left;
+    		margin-right: 0.25rem;
+    	}
+    	.cont_top dd{
+    		float: left;
+    		margin-left: 0;
+    	}
+    	.cont_top dd p{
+    		font-weight: bolder;
+    		color: #000;
+    		font-size: 0.23rem;
+    	}
+    	.cont_top dd p:nth-child(1){
+    		border-bottom: 1px solid #eaeaea;
+    		padding:0.16rem 0  0.08rem 0;
+    		
+    	}
+    	.cont_top img{
+    		width: 1.21rem;
+    		height: 1.17rem;
+    	}
+    	.list{
+    		width: 100%;
+    		height: auto;
+    		background: #FFFFFF;
+    	}
+    	.list_div{
+    		width: 100%;
+    		height: auto;
+    		/*box-sizing: border-box;*/
+    		padding-top: 0.24rem ;
+    		padding-bottom: 0.24rem ;
+    		background: url(../img/list_right_09.png) no-repeat 6rem center #FFFFFF;
+    		background-size: 0.3rem 0.14rem;
+    		/*margin-bottom: 0.2rem;*/
+    		border-bottom: 1px solid #eaeaea;
+    		/*background: red;*/
+    		
+    	}
+    	.list_div p{
+    		font-weight: bolder;
+    		color: #000000;
+    		font-size: 0.25rem;
+    		width: 1.75rem;
+    		height: auto;
+    		background: url(../img/list_xia_06.gif) no-repeat left;
+    		background-size: 0.29rem 0.35rem;
+    		padding-left: 0.73rem;
+    		margin:0.05rem 0 0 0.48rem;
+    	}
+    	.list_div .list_div_p{
+    		background: url(../img/list_xia_09.png) no-repeat left;
+    		background-size: 0.4rem 0.4rem;
+    	}
+    	.list_dl {
+    		overflow: auto;
+    		box-sizing: border-box;
+    		background: #FFFFFF;
+    		padding: 0.22rem 0 0.22rem 0;
+    		margin-top: 0;
+    		border-top: 1px solid #eaeaea;
+    		margin-bottom: 0;
+    		/*background: red;*/
+    		width: 4.9rem;
+    		margin-left: 1.1rem;
+    	}
+    	.list_dl_noe{
+    		border: none;
+    	}
+    	.list_dl img{
+    		width: 1.97rem;
+    		height: 1.07rem;
+    	}
+    	.list_dl dt{
+    		float: left;
+    		margin-right: 0.2rem;
+    	}
+    	.list_dl dd{
+    		float: left;
+    		font-size: 0.22rem;
+    		width: 2.6rem;
+    		margin-left: 0;
+    	}
+    	.list_bottom{
+    		margin: 0;
+    		width: 100%;
+    		border: 1px solid #eaeaea;
+    		padding: 0.35rem 0;
+    		background: url(../img/list_bottom_19.png) no-repeat center;
+    		background-size: 0.34rem 0.16rem;
+    	}
+    </style>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						if(clientWidth < 320) {
+							clientWidth = 320;
+						}
+//						if(clientWidth > 960) {
+//							clientWidth = 960;
+//						}
+						docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+					};
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				recalc();
+			})(document, window);
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav mui-badge-blue">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left tubiao"></a>
+	    <h1 class="mui-title">Personal home page</h1>
+	</header>
+	<footer class="mui-bar mui-bar-footer foot">
+		<button class="mui-btn foot_but mui-badge-blue">Exit</button>
+	</footer>
+	<div class="mui-content">
+		<div class="cont_top">
+			<dl>
+				<dt><img src="../img/MINE_person_03.png"/></dt>
+				<dd>
+					<p>Loin</p>
+					<p>No introduction For the time</p>
+				</dd>
+			</dl>
+		</div>
+		<div class="list">
+			<div class="list_div">
+				<p>Renimd</p>
+			</div>
+			<div class="list_toggle" style="display: none;">
+				<dl class="list_dl list_dl_noe">
+				<dt><img src="../img/person_video_14.png"/></dt>
+				<dd>
+					Tht development of China movies development
+				</dd>
+				</dl>
+				<dl class="list_dl">
+					<dt><img src="../img/person_video_14.png"/></dt>
+					<dd>
+						Tht development of China movies development
+					</dd>
+				</dl>
+				<div class="list_bottom">
+					
+				</div>
+			</div>
+			
+		</div>	
+		
+		<div class="list" id="My_collection">
+			<div class="list_div">
+				<p class="list_div_p">Renimd</p>
+			</div>
+			<div class="list_toggle"style="display: none;">
+				<dl class="list_dl list_dl_noe">
+					<dt><img src="../img/person_video_14.png"/></dt>
+					<dd>
+						Tht development of China movies development
+					</dd>
+				</dl>
+				<div class="list_bottom">
+					
+				</div>
+			</div>
+		</div>	
+		
+		
+	</div>
+</body>
+</html>

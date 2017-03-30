@@ -1,0 +1,357 @@
+body,html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	overflow: auto;
+	height: auto;
+	font-family: "微软雅黑";
+	font-size: 0.12rem;
+	overflow-x:hidden;
+}
+.top{
+	position: relative;
+}
+.top{
+	width:6.4rem;
+	height:3.73rem;
+}
+.top img{
+	display: block;
+	width:6.4rem;
+	height:3.73rem;
+}
+.top_xin{
+	position: absolute;
+	background: gray;
+	opacity: 0.5;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	z-index: 1000;
+	/*height: 3rem;*/
+	background: #2b282d;
+	padding-top: 0.09rem;
+}
+.div_sda{
+	width: 100%;
+	height: auto;
+	padding: 0.16rem 0.24rem 0 0.24rem;
+}
+.button_div{
+	width: 5.97rem;
+	padding:0.22rem 0 ;
+	background:url(../img/Detail-page-will-hold-JIAN_03.png) no-repeat 5.61rem center #3599fd;
+	background-size: 0.16rem 0.3rem;
+	color: #FFFFFF;
+	font-size: 0.25rem;
+	border: 0;
+	outline: none;
+	border-radius: 3%;
+	margin: 0 auto;
+}
+.div_sda p{
+	font-size: 0.24rem;
+	color: #000000;
+}
+.div_sda .div_sda_p{
+	margin-top: 0.33rem;
+	font-weight: bolder;
+	color: #000000;
+	font-size: 0.17rem;
+	
+}
+.top_xin span{
+	color: #fff;
+	/*display: block;*/
+	font-size: 0.21rem;
+}
+.top_xin span:nth-child(1){
+	margin-bottom: 0.27rem;
+}
+.messageClear{
+	padding-left: 0.2rem;
+	font-size: 0.25rem;
+	margin: 0.17rem 0;
+	width: 100%;
+	height: auto;
+}
+.messageClear p{
+	height: auto;
+	line-height: 0.4rem;
+}
+.messageClear .videoMessage_topic{
+	font-weight: bolder;
+	margin-right: 0.05rem;
+}
+
+.videoSmall_lun{
+	width: 100%;
+	/*background: red;*/
+	-webkit-overflow-scrolling: touch;
+	overflow: auto;
+	
+}
+.videoSmall_lun .videoSmall_lun_span{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #FFFFFF;
+	font-size: 0.16rem;
+	background: gray;
+	/*opacity: 0.4;*/
+}
+.videoSmall_lun .videoSmall_lun_img{
+	display: block;
+	height: 2.5rem;
+	width: 1.9rem;
+	
+}
+.videoSmall_lun .videoSmall_lun_img:last-child{
+	margin-right: 0;
+}
+.wenzhang_top{
+	width: 100%;
+	height: 0.6rem;
+	background: #eaeaea;
+	font-size: 0.18rem;
+	font-weight: bolder;
+	line-height: 0.6rem;
+	padding-left: 0.2rem;
+}
+.wenzhang_cont{
+	width: 100%;
+	height: auto;
+	margin-bottom: 0.12rem;
+	font-size: 0.22rem;
+	color: #000;
+	padding: 0.2rem 0 0 0.2rem;
+	box-sizing: border-box;
+	clear: both;
+}
+.wenzhang_cont p{
+	line-height: 0.4rem;
+	height: auto;
+}
+.wenzhang_pic{
+	width: 100%;
+	padding-left: 0.2rem;
+	margin-bottom: 0.23rem;
+}
+.wenzhang_pic img{
+	float: left;
+	height: 2.5rem;
+	width: 1.9rem;
+	margin-right: 0.11rem;
+}
+.wenzhang_pic img:last-child{
+	margin-right: 0;
+}
+.wenzhang_bottom{
+	width: 100%;
+}
+.detail-page-div{
+	width: 100%;
+	margin: 0.22rem 0;
+	box-sizing: border-box;
+	overflow: auto;
+}
+.detail-page-div ul{
+	/*width: 7.5rem;*/
+	height: auto;
+	overflow: auto;
+}
+.detail-page-div li{
+	float: left;
+	width: 2.4rem;
+	height: auto;
+	margin-right: 0.15rem;
+}
+.detail-page-div li:last-child{
+	margin-right: 0px;
+}
+.detail-page-div img{
+	width: 100%;
+	height: auto;
+}
+.person_div{
+	width: 100%;
+	height: auto;
+	background: #eaeaea;
+	overflow: hidden;
+}
+.person_div dl{
+	height: 2rem;
+	/*box-sizing: content-box;*/
+	padding:0.2rem 0 0.2rem 0.2rem;
+	overflow: auto;
+	background:url(../img/jiantou_06.png) no-repeat  95% center  #FFFFFF;
+	background-size: 0.15rem 0.26rem ;
+	position: relative;	
+	
+}
+.person_div dl:nth-child(1){
+	margin-bottom: 0.17rem;
+}
+.person_guest{
+	width: 100%;
+	height: auto;
+}
+.person_div_person{
+	overflow-x: auto;
+	height: auto;	
+}
+.person_div_person dl{
+	float: left;
+}
+.person_div_person dt{
+	width: 1.65rem;
+	text-align: center;
+	height: auto;
+	margin-right: 0.4rem;
+}
+.person_div dt{
+	width: 1.65rem;
+	height: auto;
+	float: left;
+	margin-right: 0.4rem;
+}
+.person_div dd{
+	float: left;
+}
+.person_div dl p:nth-child(1){
+	font-weight: bolder;
+	font-size: 0.22rem;
+	color: #000000;
+}
+.person_div dl span:nth-child(1){
+	margin-right: 0.1rem;
+}
+.person_div dl p:nth-child(2){
+	width: 3.07rem;
+	line-height: 0.36rem;
+	height: auto;
+}
+.contion_div{
+	/*margin-top: 0.1rem;*/
+	width: 100%;
+	height: auto;
+	
+}
+.contion_div>div{
+	box-sizing: border-box;
+	padding:0.48rem 0 0 0.35rem;
+}
+.contion_div dl{
+	height: auto;
+	overflow: auto;
+	margin-bottom: 0.2rem;
+}
+.contion_div dt{
+	margin-right: 0.18rem;
+	float: left;
+}
+.contion_div dd{
+	width: 4.5rem;
+	min-height: 1rem;
+	line-height: 0.4rem;
+	font-size: 0.2rem;
+	font-weight: bolder;
+	float: left;
+	padding-bottom: 0.2rem;
+	border-bottom: 1px solid #e6e6e6;
+}
+.buchong{
+	width: 100%;
+	height: 0.79rem;
+}
+.foot{
+	width: 100%;
+	height: auto;
+	background: #f6f6f6;
+	position: fixed;
+	bottom: 0;
+}
+.show_first{
+	width: 100%;
+	height: auto;
+}
+.show_first div:nth-child(1){
+	width:12%;
+	height: 0.77rem;
+	float: left;
+	background: url(../img/Detail-page-foot_03.png) no-repeat center;
+	background-size: 0.4rem 0.35rem;
+}
+.show_first div:nth-child(2){
+	width:70%;
+	height: 0.77rem;
+	float: left;
+	/*background: blue;*/
+	padding-top: 0.12rem;
+	box-sizing: border-box;
+}
+.foot input{
+	width: 95%;
+	height: 0.55rem;
+	background: #FFFFFF;
+	border-radius: 10rem;
+	/*color: #000000;*/
+	text-indent: 2em;
+}
+.show_first div:nth-child(3){
+	width:18%;
+	height: 0.77rem;
+	float: left;
+	box-sizing: border-box;
+	padding: .28rem 0 0 0;
+}
+.show_first div:nth-child(3) span:nth-child(1){
+	background: url(../img/Detail-page-foot_05.png) no-repeat center;
+	background-size: 100% 100%;
+	width: 32%;
+	height: 0.32rem;
+	float: left;
+	margin-right: 0.22rem;
+}
+.show_first div:nth-child(3) span:nth-child(2){
+	background: url(../img/Detail-page-foot_07.png) no-repeat center;
+	background-size: 100% 100%;
+	width: 32%;
+	height: 0.32rem;
+	float: left;
+}
+.question_div_ing{
+	box-sizing: border-box;
+	padding-left: 0.17rem;
+}
+.question_div_ing li{
+	width: 6.2rem;
+	padding: 0.28rem 0;
+	border-bottom: 1px solid #e9e9e9;
+	/*background: red;*/
+	font-size: 0.23rem;
+	color: #000000;
+	font-weight: bolder;
+	
+}
+.question_div_ing span{
+	display: inline-block;
+	
+}
+.question_div_ing li span:nth-child(2){
+	width: 0.38rem;
+	height: 0.27rem;
+	background: url(../img/Detail-page-will-time_07.png);
+	background-size:  0.38rem 0.27rem;
+	margin-left: 0.09rem;
+	margin-right: 0.47rem;
+}
+.question_div_ing li span:nth-child(3){
+	width: 0.79rem;
+	height: 0.39rem;
+	background: url(../img/Detail-page-will-too_03.png) no-repeat;
+	background-size:  0.79rem 0.39rem;
+	/*margin-top: 2rem;*/
+	margin-bottom: -0.1rem;
+}
